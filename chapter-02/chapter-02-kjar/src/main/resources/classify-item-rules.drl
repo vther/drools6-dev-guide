@@ -5,7 +5,7 @@ import org.drools.devguide.eshop.model.Item;
 
 rule "Classify Item - Low Range"
     when
-        $i: Item( cost <= 200, category == Category.NA )
+        $i: Item( cost <= 200, category == Item.Category.NA )
     then
         $i.setCategory(Item.Category.LOW_RANGE);
         update($i);
@@ -13,7 +13,7 @@ end
 
 rule "Classify Item - Mid Range"
     when
-        $i: Item( cost > 200 && cost < 500, category == Category.NA )
+        $i: Item( cost > 200 && cost < 500, category == Item.Category.NA )
     then
         $i.setCategory(Item.Category.MID_RANGE);
         update($i);
@@ -21,7 +21,7 @@ end
 
 rule "Classify Item - High Range"
     when
-        $i: Item( cost >= 500, category == Category.NA )
+        $i: Item( cost >= 500, category == Item.Category.NA )
     then
         $i.setCategory(Item.Category.HIGH_RANGE);
         update($i);
